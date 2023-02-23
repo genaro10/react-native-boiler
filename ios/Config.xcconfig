@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  ambienge
+//
+//  Created by Genaro Lorio on 23/02/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include? "tmp.xcconfig"
