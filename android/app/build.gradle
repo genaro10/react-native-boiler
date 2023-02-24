@@ -1,6 +1,14 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 
+ project.ext.envConfigFiles = [
+        release: ".env.production",
+        debug: ".env.staging",
+    ];
+
+apply from: project(":react-native-config").projectDir.getPath() + "/dotenv.gradle"
+
+
 import com.android.build.OutputFile
 
 /**
@@ -93,6 +101,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+
     namespace "com.ambienge"
     defaultConfig {
         applicationId "com.ambienge"
@@ -100,6 +109,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        resValue "string", "build_config_package", "com.ambienge"
     }
 
     splits {
