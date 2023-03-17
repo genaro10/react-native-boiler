@@ -18,16 +18,16 @@ jobs:
     - name: Install Fastlane
       run: gem install fastlane -N
 
-            - name: Configurar JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - name: Instalar Node.js
-        uses: actions/setup-node@v2-beta
-        with:
-          node-version: '14'
-      - name: Instalar dependencias
-        run: yarn install
+    - name: Configurar JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Instalar Node.js
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '14'
+    - name: Instalar dependencias
+      run: yarn install
 
     - name: Run Fastlane
       run: cd android && fastlane buildProd # Cambia esto al nombre de tu lane en Fastlane
