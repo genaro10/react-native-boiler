@@ -21,7 +21,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane android buildDev
 ```
 
-Create new apk en staging mode
+Build .apk for staging environment
 
 ### android buildProd
 
@@ -29,7 +29,7 @@ Create new apk en staging mode
 [bundle exec] fastlane android buildProd
 ```
 
-Create new apk en staging mode
+Build .apk for production environment
 
 ----
 
