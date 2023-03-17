@@ -1,0 +1,22 @@
+name: Fastlane
+
+on:
+  push:
+    branches:
+      - main # Cambia esto al nombre de tu rama
+
+jobs:
+  build:
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Ruby
+      uses: ruby/setup-ruby@v1
+
+    - name: Install Fastlane
+      run: gem install fastlane -N
+
+    - name: Run Fastlane
+      run: fastlane android/buildProd # Cambia esto al nombre de tu lane en Fastlane
