@@ -19,4 +19,4 @@ jobs:
       run: gem install fastlane -N
 
     - name: Run Fastlane
-      run: fastlane android/fastlane/Fastfile buildProd --verbose # Cambia esto al nombre de tu lane en Fastlane
+      run: fastlane android buildProd # Cambia esto al nombre de tu lane en Fastlane
