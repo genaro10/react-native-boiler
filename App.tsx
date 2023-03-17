@@ -1,13 +1,13 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import Config from 'react-native-config'
+import {View, Text} from 'react-native';
+import React from 'react';
+import Config from 'react-native-config';
 
 const App = () => {
   return (
     <View>
-      <Text style={{marginTop:100}}>{Config.API}s</Text>
+      <Text style={{marginTop: 100}}>{Config.API}sasdasd</Text>
     </View>
-  )
-}
+  );
+};
 
-export default App
+export default App;

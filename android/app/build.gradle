@@ -2,8 +2,9 @@ apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 
  project.ext.envConfigFiles = [
-        release: ".env.production",
-        debug: ".env.staging",
+        production: ".env.production",
+        uat: ".env.uat",
+        staging: ".env.staging"
     ];
 
 apply from: project(":react-native-config").projectDir.getPath() + "/dotenv.gradle"
@@ -110,6 +111,19 @@ android {
         versionCode 1
         versionName "1.0"
         resValue "string", "build_config_package", "com.ambienge"
+        flavorDimensions "default"
+    }
+
+    productFlavors {         // add this object
+        uat {
+            applicationIdSuffix '.uat'
+        }
+        staging {
+            applicationIdSuffix '.staging'
+        }
+        production {
+            applicationIdSuffix '.production'
+        }
     }
 
     splits {
@@ -128,6 +142,8 @@ android {
             keyPassword 'android'
         }
     }
+
+
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
@@ -170,6 +186,7 @@ dependencies {
     }
 
     debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}")
+
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
