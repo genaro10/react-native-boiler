@@ -32,10 +32,13 @@ jobs:
     - name: Run Fastlane
       run: cd android && fastlane buildProd # Cambia esto al nombre de tu lane en Fastlane
 
-    - name: Descargar APK generado
+    - name: Download APK
       uses: actions/download-artifact@v2
       with:
         name: app-production-release.apk
-        path: android/app/build/outputs/apk/production/release/app-production-release.apk
-    - name: Copiar APK a la carpeta de descargas
-      run: cp android/app/build/outputs/apk/production/release/app-production-release.apk $HOME/Downloads/
+        path: fastlane/builds
+    - name: Upload APK to artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-production-release.apk
+        path: fastlane/builds/app-production-release.apk
