@@ -35,14 +35,14 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@v2
       with:
-        name: my-app-debug.apk
-        path: app/build/outputs/apk/debug/my-app-debug.apk
+        name: app-production-release.apk
+        path: app/build/outputs/apk/production/release/app-production-release.apk
 
     - name: Download APK
       uses: actions/download-artifact@v2
       with:
-        name: my-app-debug.apk
-        path: app/build/outputs/apk/debug/my-app-debug.apk
+        name: app-production-release.apk
+        path: app/build/outputs/apk/production/release/app-production-release.apk
 
     - name: Save APK to local machine
-      run: cp app/build/outputs/apk/debug/my-app-debug.apk /Downloads
+      run: cp app/build/outputs/apk/production/release/app-production-release.apk /Downloads
