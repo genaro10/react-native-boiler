@@ -52,5 +52,11 @@ platform :android do
   desc "Build .apk for production environment"
   lane :buildProd do
     sh("npm","run","release:android:prod")
+    upload_to_google_drive(
+      drive_keyfile: 'drive_key.json',
+      service_account: true,
+      folder_id: '1sfmM7UH0CYXymETVD-jYbcZJmiIlWmDz',
+      upload_files: ['app/build/outputs/apk/production/release/app-production-release.apk']
+    )
   end
 end
