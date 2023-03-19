@@ -52,7 +52,5 @@ platform :android do
   desc "Build .apk for production environment"
   lane :buildProd do
     sh("npm","run","release:android:prod")
-    sh("mkdir", "-p", "fastlane/builds")
-    sh("cp", "android/app/build/outputs/apk/production/release/app-production-release.apk", "fastlane/builds")
   end
 end
