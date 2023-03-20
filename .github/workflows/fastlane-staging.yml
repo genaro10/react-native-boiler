@@ -1,0 +1,33 @@
+name: Fastlane STAGING
+
+on:
+  push:
+    branches:
+      - staging # Cambia esto al nombre de tu rama
+
+jobs:
+  build:
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Ruby
+      uses: ruby/setup-ruby@v1
+
+    - name: Install Fastlane
+      run: gem install fastlane -N
+
+    - name: Configurar JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Instalar Node.js
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '14'
+    - name: Instalar dependencias
+      run: yarn install
+
+    - name: Run Fastlane
+      run: cd android && fastlane buildStaging # Cambia esto al nombre de tu lane en Fastlane

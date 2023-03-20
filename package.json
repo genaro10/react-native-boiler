@@ -14,7 +14,8 @@
     "start:android:dev": "react-native run-android --variant=stagingDebug --appIdSuffix 'staging'",
     "start:android:prod": "react-native run-android --variant=productionDebug --appIdSuffix 'production'",
     "release:android:prod": "cd android && ENVFILE=.env.production ./gradlew assembleRelease",
-    "release:android:dev": "cd android && ENVFILE=.env.staging ./gradlew assembleRelease"
+    "release:android:staging": "cd android && ENVFILE=.env.staging ./gradlew assembleRelease",
+    "release:android:uat": "cd android && ENVFILE=.env.uat ./gradlew assembleRelease"
   },
   "dependencies": {
     "react": "18.2.0",

@@ -6,7 +6,7 @@ const App = () => {
   return (
     <View>
       <Text style={{marginTop: 100}}>
-        {Config.API} -- Este es mi ultimo build para probar
+        {Config.API} -- Este es mi ultimo build para
       </Text>
     </View>
   );

@@ -45,8 +45,24 @@ platform :android do
   end
 
   desc "Build .apk for staging environment"
-  lane :buildDev do
-    sh("npm","run","release:android:dev")
+  lane :buildStaging do
+    sh("npm","run","release:android:staging")
+    upload_to_google_drive(
+      drive_keyfile: 'drive_key.json',
+      service_account: true,
+      folder_id: '1sfmM7UH0CYXymETVD-jYbcZJmiIlWmDz',
+      upload_files: ['app/build/outputs/apk/staging/release/app-staging-release.apk']
+    )
+  end
+
+  lane :buildUAT do
+    sh("npm","run","release:android:uat")
+    upload_to_google_drive(
+      drive_keyfile: 'drive_key.json',
+      service_account: true,
+      folder_id: '1sfmM7UH0CYXymETVD-jYbcZJmiIlWmDz',
+      upload_files: ['app/build/outputs/apk/uat/release/app-uat-release.apk']
+    )
   end
 
   desc "Build .apk for production environment"
