@@ -5,9 +5,7 @@ import Config from 'react-native-config';
 const App = () => {
   return (
     <View>
-      <Text style={{marginTop: 100}}>
-        {Config.API} -- Este es mi ultimo build para
-      </Text>
+      <Text style={{marginTop: 100}}>AMBIENTE: {Config.API}</Text>
     </View>
   );
 };
